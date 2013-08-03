@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Instrumenting Resque - PeopleAdmin Dev (staging)</title>
+  <meta name="author" content="PA Labs">
+
+  
+  <meta name="description" content="Instrumenting Resque Aug 2nd, 2013 This is an article about how to use resque-clues. Sed fringilla velit at mauris vestibulum mollis. Integer nibh &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://peopleadmin-nonprod.github.io/blog/2013/08/02/instrumenting-resque">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="PeopleAdmin Dev (staging)" type="application/atom+xml">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap-collapse.js"></script>
+  <script src="/js/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/js/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <div class="navbar navbar-inverse navbar-static-top">
+  	<div class="navbar-inner">
+  	  <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="fui-menu-24"></span>
+        </a>
+  	  	<div class="nav-collapse collapse navbar-responsive-collapse" style="height:0;">
+  	      <ul class="nav">
+    
+        <li ><a href="/index.html">PA Labs</a></li>
+    
+        <li ><a href="/articles/index.html">Articles</a></li>
+    
+</ul>
+
+<ul class="nav pull-right">
+    
+    <li><a href="http://github.com/peopleadmin" title="Github Profile"><i class="icon-github-sign social-navbar"></i></a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
+  <div class="container" id="main">
+    <div class="span12">
+      <div class="row-fluid">
+        <div id="content">
+          <div>
+<article class="hentry" role="article">
+  
+
+  <header>
+  <div class="jumbotron">
+    Instrumenting Resque
+	<h5>
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-08-02T20:59:00-05:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2013</time></h5>
+  </div>
+</header>
+  <div class="row-fluid">
+    <div class="span12">
+      <p>This is an article about how to use resque-clues.</p>
+
+<p>Sed fringilla velit at mauris vestibulum mollis. Integer nibh mauris, imperdiet at odio nec, lacinia egestas nibh. Fusce bibendum tempus lectus quis facilisis. Ut vitae purus eu risus eleifend adipiscing quis quis felis. Praesent eu leo eu ligula feugiat blandit accumsan in nisl. Duis elit diam, vulputate ac consectetur quis, tempor ut mi. Phasellus sagittis ultrices leo, vitae porttitor erat fringilla vitae. Nulla semper libero sapien, eu mollis elit egestas non.</p>
+
+<p>Nam et nisi et arcu fermentum condimentum. Mauris ut dui sed leo bibendum dictum sit amet et orci. Donec dapibus neque ut magna aliquam vehicula. Suspendisse potenti. Sed suscipit mi odio, id consequat ligula lacinia sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam rhoncus at purus id imperdiet. Vivamus bibendum lacus sit amet libero fringilla bibendum. Suspendisse quis mi malesuada, mollis nisl id, sodales dolor. Vestibulum mattis eget sapien ac vehicula. Curabitur eros felis, blandit ac consectetur eu, tempor at libero. Ut eleifend, tellus ut mollis euismod, magna nunc aliquam est, sed ullamcorper ipsum eros dignissim leo. Vestibulum porttitor placerat nisi ut lobortis. Aliquam suscipit non elit cursus fringilla. Nulla lorem tellus, aliquet id mollis sed, gravida nec magna. Donec ornare lacus eget odio lacinia laoreet.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tortor neque, vehicula vitae sagittis sed, hendrerit quis urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel arcu vel enim volutpat pharetra fringilla sed risus. Ut ante purus, gravida eget pulvinar a, vehicula a purus. Donec vehicula sem non quam pulvinar, eget mollis odio venenatis. Praesent interdum quis arcu volutpat venenatis. Nunc pharetra, eros ac cursus pellentesque, lorem quam condimentum nisl, vel suscipit mauris justo non dui. Vestibulum elit tellus, vehicula congue pretium id, condimentum eget magna.</p>
+
+    </div>
+  </div>
+
+
+
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
+
+
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
+  
+  
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+      </div>
+      
+      
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+          
+        </p>
+      </div>
+    </div>
+  </footer>
+</article>
+
+</div>
+
+
+
+        </div>
+      </div>
+      <div class="row-fluid">
+        <footer class="footer-page" role="contentinfo">
+          <p>
+  Copyright &copy; 2013 - PA Labs
+</p>
+
+
+        </footer>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
